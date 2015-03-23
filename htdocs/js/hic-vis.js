@@ -591,13 +591,14 @@ function resetPage(gene, tissue, breadcrumb) {
     $("#page_header").html(gene + " in " + tissue.replace("_", " ") + " Tissues");
     $("#footer-bait").html("&nbsp;");
     $("#footer-target").html("&nbsp;");
-    if (breadcrumb) $("#breadcrumb").append('<li id="BC-' + gene + '"><a href="#" onclick=\'javascript:d3.selectAll("svg").remove(); $("#BC-' + gene + '").remove(); renderHic("' + gene + '", $("input:radio[name=tissue]:checked").val(), $("input:radio[name=di]:checked").val(), 1)\'>' + gene + '</a></li>');
+    if (breadcrumb) $("#breadcrumb").append('<li id="BC-' + gene + '"><a href="#" onclick=\'javascript:d3.selectAll("svg").remove(); $("#BC-' + gene + '").remove(); renderHic("' + gene + '", $("input:radio[name=tissue]:checked").val(), 750, 1)\'>' + gene + '</a></li>');
 }
 
 $(document).ready(function () {
     $("#pushme").bind("click", function () {
         var tissue = $("input:radio[name=tissue]:checked").val();
-        var diameter = $("input:radio[name=di]:checked").val();
+        //var diameter = $("input:radio[name=di]:checked").val();
+        var diameter = 750;
         var gene = $("#gene").val().toUpperCase();
         renderHic(gene, tissue, diameter, 1)
         return (false);
@@ -605,17 +606,19 @@ $(document).ready(function () {
 
     $("input:radio[name=tissue]").bind("click", function () {
         var tissue = $("input:radio[name=tissue]:checked").val();
-        var diameter = $("input:radio[name=di]:checked").val();
+        //var diameter = $("input:radio[name=di]:checked").val();
+        var diameter = 750;
         var gene = $("#gene").val().toUpperCase();
         renderHic(gene, tissue, diameter, 0)
     });
 
-    $("input:radio[name=di]").bind("click", function () {
+    /*$("input:radio[name=di]").bind("click", function () {
         var tissue = $("input:radio[name=tissue]:checked").val();
-        var diameter = $("input:radio[name=di]:checked").val();
+        //var diameter = $("input:radio[name=di]:checked").val();
+        var diameter = 750;
         var gene = $("#gene").val().toUpperCase();
         renderHic(gene, tissue, diameter, 0)
-    });
+    });*/
 });
 
 var geneParam = getQueryVariable("gene");
