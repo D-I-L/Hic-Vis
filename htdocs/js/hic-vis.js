@@ -154,7 +154,7 @@ function renderHic(gene, tissue, diameter, breadcrumb) {
     resetPage(gene, tissue, breadcrumb)
     var trans = "translate(" + diameter * 0.5 + "," + diameter * 0.5 + ")";
     var maxscore = 0;
-    d3.json("/hic-vis/cgi-bin/prototype.pl?gene=" + gene + '&tissue=' + tissue, function (error, json) {
+    d3.json("/CHIC_DEMO2/cgi-bin/prototype.pl?gene=" + gene + '&tissue=' + tissue, function (error, json) {
         if (error) return console.warn(error);
         data = json;
         //console.log(data);
@@ -475,7 +475,7 @@ function drawRegionPanel(type, chr, start, end, maxscore) {
 		
 	//console.log(region);
 		
-	d3.json("/hic-vis/cgi-bin/prototype.pl?region=" + region, function (error, data) {
+	d3.json("/CHIC_DEMO2/cgi-bin/prototype.pl?region=" + region, function (error, data) {
 			if (error) return console.warn(error);
 			
 			//console.log(data);
